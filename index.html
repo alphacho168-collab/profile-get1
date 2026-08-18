@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Patradit — Investment & Marketing Consultant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --jade-900: #001210;
+            --jade-800: #002E24;
+            --jade-700: #003D30;
+            --jade-600: #00553A;
+            --jade-500: #00705A;
+            --jade-400: #00A08A;
+            --jade-300: #2CC4B0;
+            --jade-200: #66D8CA;
+            --jade-100: #A0ECE2;
+            --jade-50: #D4F5F0;
+            --gold: #FFD700;
+            --gold-light: #FFE44D;
+            --gold-dark: #C7A600;
+            --white: #FFFFFF;
+            --off-white: #F8FFFE;
+            --dark: #0A1F1A;
+            --text: #1A2F2A;
+            --text-light: #5A7A72;
+            --shadow: 0 20px 60px rgba(0,31,26,0.15);
+            --shadow-lg: 0 40px 100px rgba(0,31,26,0.2);
+        }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: 'Prompt', 'Inter', sans-serif;
+            background: var(--off-white);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+        ::selection { background: var(--gold); color: var(--jade-900); }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ========== LUXURY EXTRAS ========== */
+        .luxury-divider {
+            width: 60px; height: 2px; margin: 1rem auto 1.5rem;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .glass {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .shimmer-text {
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold), var(--gold-light), var(--gold-dark));
+            background-size: 200% auto;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+        .hero-animate {
+            opacity: 0; transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hero-animate:nth-child(2) { transition-delay: 0.1s; }
+        .hero-animate:nth-child(3) { transition-delay: 0.2s; }
+        .hero-animate:nth-child(4) { transition-delay: 0.3s; }
+        .hero-animate:nth-child(5) { transition-delay: 0.4s; }
+        .hero-animate:nth-child(6) { transition-delay: 0.5s; }
+        .hero-animate.show {
+            opacity: 1; transform: translateY(0);
+        }
+        .hero-animate-scale {
+            opacity: 0; transform: scale(0.8);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+        }
+        .hero-animate-scale.show {
+            opacity: 1; transform: scale(1);
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeLeft {
+            from { opacity: 0; transform: translateX(-60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeRight {
+            from { opacity: 0; transform: translateX(60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-60px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(60px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-right.active { opacity: 1; transform: translateX(0); }
+        .reveal-scale { opacity: 0; transform: scale(0.85); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-scale.active { opacity: 1; transform: scale(1); }
+
+        /* ========== NAVBAR ========== */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(0px);
+        }
+        .navbar.scrolled {
+            background: rgba(0,31,26,0.92);
+            backdrop-filter: blur(20px);
+            padding: 0.7rem 2rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem; font-weight: 700;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 3px;
+        }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a {
+            color: var(--white); font-weight: 500; font-size: 0.95rem;
+            position: relative; padding: 0.3rem 0;
+            transition: color 0.3s;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: 0; left: 0;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--jade-400));
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Mobile nav */
+        .hamburger {
+            display: none; flex-direction: column; gap: 5px;
+            cursor: pointer; z-index: 1001;
+        }
+        .hamburger span {
+            width: 28px; height: 2px; background: var(--white);
+            transition: all 0.3s;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--jade-900) 0%, #002820 35%, var(--jade-700) 65%, #005A48 100%);
+            background-size: 300% 300%;
+            animation: gradientShift 12s ease infinite;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+            padding: 2rem;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255,215,0,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0,188,212,0.1) 0%, transparent 40%),
+                radial-gradient(circle at 60% 80%, rgba(255,215,0,0.06) 0%, transparent 40%);
+        }
+        /* Floating decorative elements */
+        .hero-deco {
+            position: absolute; border-radius: 50%;
+            background: rgba(255,215,0,0.06);
+            animation: float 6s ease-in-out infinite;
+        }
+        .hero-deco:nth-child(1) { width: 300px; height: 300px; top: -50px; right: -50px; animation-delay: 0s; }
+        .hero-deco:nth-child(2) { width: 200px; height: 200px; bottom: -30px; left: -30px; animation-delay: 2s; }
+        .hero-deco:nth-child(3) { width: 150px; height: 150px; top: 30%; left: 10%; animation-delay: 4s; background: rgba(0,188,212,0.05); }
+
+        .hero-content {
+            position: relative; z-index: 2;
+            text-align: center; max-width: 900px;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(255,215,0,0.15);
+            border: 1px solid rgba(255,215,0,0.3);
+            color: var(--gold-light);
+            padding: 0.5rem 1.5rem; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 500;
+            margin-bottom: 2rem;
+        }
+        .hero-badge .dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--gold);
+            animation: pulse-ring 1.5s ease infinite;
+        }
+        .hero-image-wrap {
+            position: relative; width: 260px; height: 300px;
+            margin: 0 auto 2.5rem;
+        }
+        .hero-image-wrap img {
+            width: 100%; height: 100%; object-fit: cover;
+            border-radius: 20px;
+            border: 4px solid var(--gold);
+            box-shadow: 0 0 40px rgba(255,215,0,0.3), 0 0 80px rgba(0,107,63,0.3);
+        }
+        .hero-image-ring {
+            position: absolute; inset: -12px;
+            border: 2px solid rgba(255,215,0,0.2);
+            border-radius: 28px;
+            animation: pulse-ring 3s ease-in-out infinite;
+        }
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            font-weight: 700; color: var(--white);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: var(--jade-200); font-weight: 400;
+            margin-bottom: 0.5rem;
+            letter-spacing: 6px; text-transform: uppercase;
+        }
+        .hero-role {
+            font-size: clamp(0.85rem, 1.4vw, 1rem);
+            color: var(--gold-light); font-weight: 400;
+            letter-spacing: 4px; text-transform: uppercase;
+            margin-bottom: 2.5rem;
+        }
+        .hero-btns {
+            display: flex; gap: 1rem; justify-content: center;            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 1rem 2.5rem; border-radius: 50px;
+            font-weight: 600; font-size: 1rem; cursor: pointer;
+            border: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: 'Prompt', sans-serif;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--jade-900);
+            box-shadow: 0 8px 30px rgba(255,215,0,0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255,215,0,0.5);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: var(--white);
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-3px);
+        }
+        .scroll-indicator {
+            position: absolute; bottom: 2rem; left: 50%;
+            transform: translateX(-50%);
+            animation: float 2s ease-in-out infinite;
+        }
+        .scroll-indicator span {
+            display: block; width: 2px; height: 40px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+            margin: 0 auto;
+        }
+
+        /* ========== SECTION COMMON ========== */
+        section { padding: 6rem 2rem; }
+        .section-header {
+            text-align: center; margin-bottom: 4rem;
+        }
+        .section-tag {
+            display: inline-block;
+            font-size: 0.8rem; font-weight: 600;
+            letter-spacing: 3px; text-transform: uppercase;
+            color: var(--jade-500);
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 700; color: var(--jade-800);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+        .section-title .gold { color: var(--gold-dark); }
+        .section-desc {
+            font-size: 1.1rem; color: var(--text-light);
+            max-width: 600px; margin: 0 auto;
+        }
+        .section-divider {
+            width: 80px; height: 2px; margin: 0 auto 1rem;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        /* ========== ABOUT ========== */
+        .about {
+            background: var(--white);
+            position: relative;
+        }
+        .about-grid {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4rem; align-items: center;
+        }
+        .about-image {
+            position: relative;
+        }
+        .about-image img {
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            width: 100%; height: 500px; object-fit: cover;
+        }
+        .about-image-accent {
+            position: absolute; bottom: -20px; right: -20px;
+            width: 200px; height: 200px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 20px; z-index: -1;
+            opacity: 0.3;
+        }
+        .about-stats {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem; margin-top: 2rem;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #003828, var(--jade-800));
+            color: var(--white); padding: 1.5rem; border-radius: 16px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem; font-weight: 900;
+            color: var(--gold);
+        }
+        .stat-label {
+            font-size: 0.8rem; color: var(--jade-200);
+            margin-top: 0.3rem;
+        }
+        .about-text h3 {
+            font-size: 1.5rem; color: var(--jade-700);
+            margin-bottom: 1rem;
+        }
+        .about-text p {
+            color: var(--text-light); line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .about-quote {
+            background: linear-gradient(135deg, var(--jade-50), var(--jade-100));
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem; border-radius: 0 12px 12px 0;
+            font-style: italic; color: var(--jade-700);
+            font-size: 1.05rem;
+        }
+
+        /* ========== EXPERIENCE ========== */
+        .experience { background: var(--off-white); }
+        .timeline {
+            max-width: 900px; margin: 0 auto;
+            position: relative;
+        }
+        .timeline::before {
+            content: ''; position: absolute;
+            left: 50%; transform: translateX(-50%);
+            width: 3px; height: 100%;
+            background: linear-gradient(to bottom, var(--jade-500), var(--gold), var(--jade-500));
+            border-radius: 3px;
+        }
+        .timeline-item {
+            display: flex; align-items: flex-start;
+            margin-bottom: 3rem; position: relative;
+        }
+        .timeline-item:nth-child(odd) { flex-direction: row-reverse; }
+        .timeline-content {
+            width: 45%; padding: 2rem;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            position: relative;
+        }
+        .timeline-content:hover { transform: translateY(-5px); }
+        .timeline-dot {
+            position: absolute; left: 50%; transform: translateX(-50%);
+            width: 20px; height: 20px;
+            background: var(--gold);
+            border: 4px solid var(--jade-500);
+            border-radius: 50%; z-index: 2;
+            box-shadow: 0 0 20px rgba(255,215,0,0.3);
+        }
+        .timeline-year {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--jade-700), var(--jade-600));
+            color: var(--gold); padding: 0.3rem 1rem;
+            border-radius: 50px; font-size: 0.85rem;
+            font-weight: 600; margin-bottom: 0.8rem;
+        }
+        .timeline-content h3 {
+            font-size: 1.1rem; color: var(--jade-700);
+            margin-bottom: 0.5rem;
+        }
+        .timeline-content p {
+            font-size: 0.95rem; color: var(--text-light);
+        }
+        .timeline-highlight {
+            color: var(--gold-dark) !important;
+            font-weight: 600;
+        }
+
+        /* ========== SKILLS ========== */
+        .skills { background: var(--white); }
+        .skills-grid {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .skill-card {
+            background: linear-gradient(145deg, #002820, #003D30);
+            color: var(--white); padding: 2.5rem 2rem;
+            border-radius: 24px;
+            text-align: center;
+            position: relative; overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255,215,0,0.08);
+        }
+        .skill-card::before {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(255,215,0,0.08), transparent 60%);
+            opacity: 0; transition: opacity 0.5s;
+        }
+        .skill-card::after {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+            transition: left 0.8s;
+        }
+        .skill-card:hover::after { left: 100%; }
+        .skill-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px rgba(0,31,26,0.4), 0 0 40px rgba(255,215,0,0.05);
+            border-color: rgba(255,215,0,0.15);
+        }
+        .skill-card:hover::before { opacity: 1; }
+        .skill-icon {
+            width: 70px; height: 70px; margin: 0 auto 1.5rem;
+            background: rgba(255,215,0,0.15);
+            border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+            transition: transform 0.4s;
+        }
+        .skill-card:hover .skill-icon { transform: scale(1.1) rotate(5deg); }
+        .skill-card h3 {
+            font-size: 1.2rem; margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        .skill-card ul {
+            list-style: none; text-align: left;
+        }
+        .skill-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem; color: var(--jade-100);
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .skill-card li::before {
+            content: '✦'; color: var(--gold); font-size: 0.7rem;
+        }
+
+        /* ========== GALLERY ========== */
+        .gallery { background: var(--off-white); }
+        .gallery-grid {
+            max-width: 1100px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .gallery-item {
+            position: relative; border-radius: 16px;
+            overflow: hidden; aspect-ratio: 4/3;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .gallery-item:hover { transform: translateY(-8px) scale(1.02); }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,31,26,0.8), transparent);
+            display: flex; align-items: flex-end;
+            padding: 1.5rem; opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay span {
+            color: var(--white); font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* ========== SERVICES ========== */
+        .services { background: var(--white); }
+        .service-card {
+            max-width: 1100px; margin: 0 auto 4rem;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 3rem; align-items: center;
+            background: var(--off-white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.4s;
+        }
+        .service-card:hover { transform: translateY(-8px); }
+        .service-card:nth-child(even) { direction: rtl; }
+        .service-card:nth-child(even) > * { direction: ltr; }
+        .service-image {
+            height: 100%; min-height: 400px;
+            overflow: hidden;
+        }
+        .service-image img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .service-card:hover .service-image img { transform: scale(1.05); }
+        .service-content {
+            padding: 3rem;
+        }
+        .service-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--jade-700), var(--jade-600));
+            color: var(--gold);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .service-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--jade-800);
+            margin-bottom: 1rem;
+        }
+        .service-content h3 .gold { color: var(--gold-dark); }
+        .service-content > p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        .service-features li {
+            padding: 0.6rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+            color: var(--text);
+            border-bottom: 1px solid rgba(0,77,64,0.08);
+        }
+        .service-features li:last-child { border-bottom: none; }
+        .service-features .feat-icon {
+            min-width: 28px; height: 28px;
+            background: linear-gradient(135deg, var(--jade-700), var(--jade-600));
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem;
+        }
+        .service-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: linear-gradient(135deg, var(--jade-700), var(--jade-600));
+            color: var(--white);
+            border: none; border-radius: 12px;
+            font-family: 'Prompt', sans-serif;
+            font-size: 1rem; font-weight: 600;
+            cursor: pointer; transition: all 0.4s;
+            text-decoration: none;
+        }
+        .service-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,77,64,0.3);
+        }
+        @media (max-width: 768px) {
+            .service-card { grid-template-columns: 1fr; }
+            .service-card:nth-child(even) { direction: ltr; }
+            .service-image { min-height: 250px; }
+            .service-content { padding: 2rem; }
+        }
+
+        /* ========== CERTIFICATIONS ========== */
+        .certifications {
+            background: linear-gradient(135deg, #001210, #002E24);
+            color: var(--white);
+            position: relative; overflow: hidden;
+        }
+        .certifications::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255,215,0,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(0,160,138,0.04) 0%, transparent 50%);
+        }
+        .cert-grid {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 2rem; position: relative; z-index: 1;
+        }
+        .cert-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,215,0,0.1);
+            border-radius: 20px; overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .cert-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+            opacity: 0; transition: opacity 0.4s;
+        }
+        .cert-card:hover::before { opacity: 1; }
+        .cert-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255,215,0,0.25);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3), 0 0 30px rgba(255,215,0,0.05);
+        }
+        .cert-image {
+            height: 220px; overflow: hidden;
+        }
+        .cert-image img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s;
+        }
+        .cert-card:hover .cert-image img { transform: scale(1.08); }
+        .cert-body {
+            padding: 1.8rem;
+        }
+        .cert-icon {
+            width: 48px; height: 48px;
+            background: linear-gradient(135deg, rgba(255,215,0,0.15), rgba(255,215,0,0.05));
+            border: 1px solid rgba(255,215,0,0.2);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; margin-bottom: 1rem;
+        }
+        .cert-body h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem; color: var(--gold);
+            margin-bottom: 0.5rem; line-height: 1.4;
+        }
+        .cert-body .cert-speaker {
+            font-size: 0.9rem; color: var(--jade-200);
+            font-style: italic;
+        }
+        .cert-body .cert-location {
+            display: inline-block; margin-top: 0.8rem;
+            font-size: 0.8rem; color: var(--jade-300);
+            background: rgba(255,215,0,0.08);
+            padding: 0.3rem 0.8rem; border-radius: 50px;
+            border: 1px solid rgba(255,215,0,0.12);
+        }
+        @media (max-width: 768px) {
+            .cert-grid { grid-template-columns: 1fr; max-width: 500px; }
+        }
+
+        /* ========== QUOTES / MOTTOS ========== */
+        .quotes-section {
+            background: linear-gradient(135deg, #001210, #003828);
+            color: var(--white);
+            text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .quotes-section::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(255,215,0,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(0,188,212,0.06) 0%, transparent 50%);
+        }
+        .quotes-grid {
+            max-width: 1000px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem; position: relative; z-index: 1;
+        }
+        .quote-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px; padding: 2.5rem 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s;
+        }
+        .quote-card:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+            border-color: rgba(255,215,0,0.3);
+        }
+        .quote-card .quote-icon {
+            font-size: 2.5rem; margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        .quote-card p {
+            font-size: 1rem; line-height: 1.8;
+            color: var(--jade-100);
+        }
+        .quote-card .quote-author {
+            margin-top: 1rem; color: var(--gold);
+            font-weight: 600; font-size: 0.9rem;
+        }
+
+        /* ========== CONTACT ========== */
+        .contact { background: var(--white); }
+        .contact-grid {
+            max-width: 1000px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        .contact-info h3 {
+            font-size: 1.5rem; color: var(--jade-700);
+            margin-bottom: 1.5rem;
+        }
+        .contact-info p {
+            color: var(--text-light); margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        .contact-detail {
+            display: flex; align-items: center; gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem; border-radius: 12px;
+            background: var(--jade-50);
+            transition: transform 0.3s;
+        }
+        .contact-detail:hover { transform: translateX(5px); }
+        .contact-detail .icon {
+            width: 50px; height: 50px; min-width: 50px;
+            background: linear-gradient(135deg, var(--jade-700), var(--jade-600));
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem;
+        }
+        .contact-detail .info span {
+            display: block; font-size: 0.8rem; color: var(--text-light);
+        }
+        .contact-detail .info strong {
+            color: var(--jade-800); font-size: 0.95rem;
+        }
+        .contact-form {
+            background: var(--off-white);
+            padding: 2.5rem; border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block; font-weight: 600;
+            color: var(--jade-700); margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 1rem 1.2rem;
+            border: 2px solid var(--jade-100);
+            border-radius: 12px; font-family: 'Prompt', sans-serif;
+            font-size: 1rem; color: var(--text);
+            background: var(--white);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none; border-color: var(--jade-500);
+            box-shadow: 0 0 0 4px rgba(0,137,123,0.1);
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-submit {
+            width: 100%; padding: 1rem;
+            background: linear-gradient(135deg, var(--jade-700), var(--jade-500));
+            color: var(--white); border: none;
+            border-radius: 12px; font-family: 'Prompt', sans-serif;
+            font-size: 1.1rem; font-weight: 600;
+            cursor: pointer; transition: all 0.4s;
+        }
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,77,64,0.3);
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: linear-gradient(135deg, #001210, #002820);
+            color: var(--white); padding: 4rem 2rem 3rem; text-align: center;
+            border-top: 1px solid rgba(255,215,0,0.15);
+            position: relative;
+        }
+        .footer::before {
+            content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+            width: 120px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem; font-weight: 700;
+            letter-spacing: 4px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        .footer p {
+            color: var(--jade-200); font-size: 0.9rem;
+        }
+        .footer-social {
+            display: flex; gap: 1rem; justify-content: center;
+            margin: 1.5rem 0;
+        }
+        .footer-social a {
+            width: 45px; height: 45px;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; transition: all 0.3s;
+        }
+        .footer-social a:hover {
+            background: var(--gold);
+            color: var(--jade-900);
+            transform: translateY(-3px);
+        }
+        .footer-copy {
+            margin-top: 2rem; padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem; color: var(--jade-300);
+        }
+
+        /* ========== BACK TO TOP ========== */
+        .back-to-top {
+            position: fixed; bottom: 2rem; right: 2rem;
+            width: 50px; height: 50px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--jade-900); border: none;
+            border-radius: 50%; font-size: 1.3rem;
+            cursor: pointer; z-index: 999;
+            opacity: 0; visibility: hidden;
+            transition: all 0.4s;
+            box-shadow: 0 8px 30px rgba(255,215,0,0.3);
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(255,215,0,0.5);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed; top: 0; right: -100%;
+                width: 80%; height: 100vh;
+                background: var(--jade-900);
+                flex-direction: column; align-items: center;
+                justify-content: center; gap: 2rem;
+                transition: right 0.4s ease;
+            }
+            .nav-links.open { right: 0; }
+            .hamburger { display: flex; }
+
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .about-image img { height: 350px; }
+            .about-stats { grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+
+            .timeline::before { left: 20px; }
+            .timeline-item, .timeline-item:nth-child(odd) {
+                flex-direction: row; padding-left: 50px;
+            }
+            .timeline-content { width: 100%; }
+            .timeline-dot { left: 20px; }
+
+            .skills-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .quotes-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .about-stats { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .btn { padding: 0.8rem 1.8rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">GET</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">เกี่ยวกับ</a></li>
+                <li><a href="#experience">ประสบการณ์</a></li>
+                <li><a href="#skills">ความเชี่ยวชาญ</a></li>
+                <li><a href="#services">บริการ</a></li>
+                <li><a href="#gallery">แกลเลอรี</a></li>
+                <li><a href="#contact">ติดต่อ</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="hero-deco"></div>
+        <div class="hero-deco"></div>
+        <div class="hero-deco"></div>
+        <div class="hero-content">
+            <div class="hero-badge hero-animate"><span class="dot"></span> AVAILABLE FOR WORK</div>
+            <div class="hero-image-wrap hero-animate-scale">
+                <img src="images/profile-hero.png" alt="Get Patradit">
+                <div class="hero-image-ring"></div>
+            </div>
+            <h1 class="hero-name hero-animate">Get <span class="highlight shimmer-text">Patradit</span></h1>
+            <p class="hero-subtitle hero-animate">Supatwanitchakorn</p>
+            <div class="luxury-divider hero-animate"></div>
+            <p class="hero-role hero-animate">ที่ปรึกษาด้านการลงทุน & การตลาด</p>
+            <div class="hero-btns hero-animate">
+                <a href="#contact" class="btn btn-primary">📞 ติดต่อเลย</a>
+                <a href="#experience" class="btn btn-outline">📖 ดูประสบการณ์</a>
+            </div>
+        </div>
+        <div class="scroll-indicator"><span></span></div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="about">
+        <div class="section-header reveal">
+            <span class="section-tag">✦ เกี่ยวกับผม</span>
+            <h2 class="section-title">ผู้เชี่ยวชาญ <span class="gold">ด้านการตลาด</span> และเทคโนโลยี</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-image reveal-left">
+                <img src="images/profile-about.png" alt="Get Patradit Profile">
+                <div class="about-image-accent"></div>
+            </div>
+            <div class="about-text reveal-right">
+                <h3>สวัสดีครับ ผม Get Patradit 👋</h3>
+                <p>
+                    นักการตลาดและนักออกแบบมากประสบการณ์ที่มีความเชี่ยวชาญด้านการสร้างแบรนด์ในระดับสากล
+                    ทั้งภาคธุรกิจและองค์กร และผู้พัฒนา AI Agent สำหรับธุรกิจที่เชี่ยวชาญด้านออนไลน์
+                    ปัจจุบันเป็นอิสระภาพ พร้อมรับงานที่ปรึกษาด้านการตลาด เทคโนโลยี และการออกแบบ
+                </p>
+                <div class="about-quote">
+                    "เป้าหมายเขียนไว้บนหินผา ปัญหาเขียนไว้บนพื้นทราย"
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">35+</div>
+                        <div class="stat-label">ปีประสบการณ์</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">89M+</div>
+                        <div class="stat-label">รายได้คอมมิชั่น</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">ธุรกิจที่ดูแล</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="experience" id="experience">
+        <div class="section-header reveal">
+            <span class="section-tag">✦ เส้นทางอาชีพ</span>
+            <h2 class="section-title">ประสบการณ์ <span class="gold">การทำงาน</span></h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item reveal-left">
+                <div class="timeline-content">
+                    <span class="timeline-year">1987 – 2022</span>
+                    <h3>ผู้จัดการฝ่ายคอมพิวเตอร์</h3>
+                    <p>บริษัทเงินทุนหลักทัพย์ <span class="timeline-highlight">— 14 ปี</span></p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item reveal-right">
+                <div class="timeline-content">
+                    <span class="timeline-year">2000 – 2004</span>
+                    <h3>TAHITIAN NONI</h3>
+                    <p>เครือข่ายต่างประเทศ 4 ปี <span class="timeline-highlight">— รับคอมมิชั่น 19 ล้านบาท</span></p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item reveal-left">
+                <div class="timeline-content">
+                    <span class="timeline-year">2008 – 2013</span>
+                    <h3>Agel</h3>
+                    <p>เครือข่ายต่างประเทศ 5 ปี <span class="timeline-highlight">— รับคอมมิชั่น 70 ล้านบาท</span></p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item reveal-right">
+                <div class="timeline-content">
+                    <span class="timeline-year">2017 – 2025</span>
+                    <h3>ที่ปรึกษาบริษัทเครือข่าย (MLM)</h3>
+                    <p>บริษัทเครือข่ายของไทย <span class="timeline-highlight">— 8 ปี</span></p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item reveal-left">
+                <div class="timeline-content">
+                    <span class="timeline-year">2020 – 2022</span>
+                    <h3>CTO — บริษัทอีคอมเมิร์ซ</h3>
+                    <p>ผู้บริหารฝ่ายเทคโนโลยี <span class="timeline-highlight">— 2 ปี</span></p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item reveal-right">
+                <div class="timeline-content">
+                    <span class="timeline-year">2021 – 2024</span>
+                    <h3>ผู้อำนวยการฝ่ายการตลาด</h3>
+                    <p>บริษัทบลูโอเชียน <span class="timeline-highlight">— 3 ปี</span></p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            <div class="timeline-item reveal-left">
+                <div class="timeline-content">
+                    <span class="timeline-year">2017 – 2019</span>
+                    <h3>🎬 วงการบันเทิง</h3>
+                    <p>ผู้อำนวยการสร้างภาพยนตร์ไทย Producer MV 5 เพลง ที่ปรึกษาซีรีส์ 2 เรื่อง</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section class="skills" id="skills">
+        <div class="section-header reveal">
+            <span class="section-tag">✦ ความเชี่ยวชาญ</span>
+            <h2 class="section-title">ทักษะ & <span class="gold">ความสามารถ</span></h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card reveal-scale">
+                <div class="skill-icon">🎨</div>
+                <h3>การออกแบบ</h3>
+                <ul>
+                    <li>กราฟิกดีไซน์</li>
+                    <li>อินโฟกราฟิก & โบชัวร์</li>
+                    <li>งานพรีเซนเทชัน</li>
+                    <li>สื่อโฆษณาออนไลน์</li>
+                </ul>
+            </div>
+            <div class="skill-card reveal-scale" style="transition-delay: 0.15s;">
+                <div class="skill-icon">📈</div>
+                <h3>การตลาด</h3>
+                <ul>
+                    <li>วางกลยุทธ์การตลาด</li>
+                    <li>คอนเทนต์โซเชียล</li>
+                    <li>ยิงแอด Facebook</li>
+                    <li>การตลาดเชิงสร้างสรรค์</li>
+                </ul>
+            </div>
+            <div class="skill-card reveal-scale" style="transition-delay: 0.3s;">
+                <div class="skill-icon">🤖</div>
+                <h3>เทคโนโลยี & AI</h3>
+                <ul>
+                    <li>พัฒนา AI Agent</li>
+                    <li>LINE OA & Automation</li>
+                    <li>Web App Development</li>
+                    <li>ระบบออฟไลน์สู่ออนไลน์</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section class="certifications" id="certifications">
+        <div class="section-header reveal" style="position:relative;z-index:1;">
+            <span class="section-tag" style="color:var(--gold);">✦ จบหลักสูตรพิเศษ</span>
+            <h2 class="section-title" style="color:var(--white);">ใบรับรอง & <span class="gold">มาตราฐานสากล</span></h2>
+            <p class="section-desc" style="color:var(--jade-200);">จบหลักสูตรอบรมระดับโลก จากวิทยากรชั้นนำของวงการ</p>
+        </div>
+        <div class="cert-grid">
+            <!-- Cert 1 -->
+            <div class="cert-card">
+                <div class="cert-image">
+                    <img src="images/cert1.jpg" alt="The Millionaire Mind">
+                </div>
+                <div class="cert-body">
+                    <div class="cert-icon">🏆</div>
+                    <h3>The Millionaire Mind Intensive</h3>
+                    <p class="cert-speaker">โดย T. Harv Eker</p>
+                    <span class="cert-location">📍 Singapore</span>
+                </div>
+            </div>
+            <!-- Cert 2 -->
+            <div class="cert-card">
+                <div class="cert-image">
+                    <img src="images/cert2.jpg" alt="The Mastermind">
+                </div>
+                <div class="cert-body">
+                    <div class="cert-icon">🧠</div>
+                    <h3>The Mastermind Conference</h3>
+                    <p class="cert-speaker">โดย Eric Worre & Randy Gage</p>
+                    <span class="cert-location">📍 Miami, Florida USA</span>
+                </div>
+            </div>
+            <!-- Cert 3 -->
+            <div class="cert-card">
+                <div class="cert-image">
+                    <img src="images/cert3.jpg" alt="Professional Motivational Speaker">
+                </div>
+                <div class="cert-body">
+                    <div class="cert-icon">🎤</div>
+                    <h3>Professional Motivational Speaker</h3>
+                    <p class="cert-speaker">โดย Supakit Rungrote</p>
+                    <span class="cert-location">📍 Thailand</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery" id="gallery">
+        <div class="section-header reveal">
+            <span class="section-tag">✦ แกลเลอรี</span>
+            <h2 class="section-title">ผลงาน & <span class="gold">กิจกรรม</span></h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item reveal-scale">
+                <img src="images/q1.png" alt="Work 1">
+                <div class="gallery-overlay"><span>ผลงานด้านการออกแบบ</span></div>
+            </div>
+            <div class="gallery-item reveal-scale" style="transition-delay:0.1s;">
+                <img src="images/q2.png" alt="Work 2">
+                <div class="gallery-overlay"><span>กลยุทธ์การตลาด</span></div>
+            </div>
+            <div class="gallery-item reveal-scale" style="transition-delay:0.2s;">
+                <img src="images/q3.png" alt="Work 3">
+                <div class="gallery-overlay"><span>งานนำเสนอ</span></div>
+            </div>
+            <div class="gallery-item reveal-scale" style="transition-delay:0.3s;">
+                <img src="images/q4.png" alt="Work 4">
+                <div class="gallery-overlay"><span>โปรเจกต์พิเศษ</span></div>
+            </div>
+            <div class="gallery-item reveal-scale" style="transition-delay:0.4s;">
+                <img src="images/work1.jpg" alt="Activity 1">
+                <div class="gallery-overlay"><span>กิจกรรม</span></div>
+            </div>
+            <div class="gallery-item reveal-scale" style="transition-delay:0.5s;">
+                <img src="images/work2.jpg" alt="Activity 2">
+                <div class="gallery-overlay"><span>งานสัมมนา</span></div>
+            </div>
+            <div class="gallery-item reveal-scale" style="transition-delay:0.6s;">
+                <img src="images/work3.jpg" alt="Activity 3">
+                <div class="gallery-overlay"><span>Networking</span></div>
+            </div>
+            <div class="gallery-item reveal-scale" style="transition-delay:0.7s;">
+                <img src="images/work4.jpg" alt="Activity 4">
+                <div class="gallery-overlay"><span>ทีมงาน</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services">
+        <div class="section-header reveal">
+            <span class="section-tag">✦ บริการของเรา</span>
+            <h2 class="section-title">ระบบ & <span class="gold">โซลูชัน</span> ที่ทำได้</h2>
+            <p class="section-desc">พัฒนาระบบครบวงจร ตั้งแต่เว็บแอป CRM จนถึง AI Chatbot เชื่อม LINE OA</p>
+        </div>
+
+        <!-- Service 1: MINI App - FastInvoice -->
+        <div class="service-card reveal">
+            <div class="service-image">
+                <img src="images/service-fastinvoice.png" alt="MINI App - FastInvoice MCP">
+            </div>
+            <div class="service-content">
+                <span class="service-badge">📄 MINI App</span>
+                <h3>FastInvoice <span class="gold">MCP Server</span></h3>
+                <p>ระบบใบเสนอราคา ใบเสร็จรับเงิน และภาษีสรรพากร ส่ง Flex ผ่าน LINE พร้อมสั่งงานด้วย AI ภาษาไทย</p>
+                <ul class="service-features">
+                    <li><span class="feat-icon">📄</span> ออกเอกสารครบวงจร แปลง Quotation → Invoice → Receipt ใน 1 คลิก</li>
+                    <li><span class="feat-icon">⚖️</span> ระบบภาษีสรรพากรไทย VAT 7% & หัก ณ ที่จ่าย 1-5% อัตโนมัติ</li>
+                    <li><span class="feat-icon">💬</span> แชร์บิลตรงเข้า LINE ลูกค้าเป็นการ์ด Flex Message สวยหรู</li>
+                    <li><span class="feat-icon">🖨️</span> พรีวิวเอกสารมาตรฐาน A4 ดาวน์โหลด PDF ได้ทันที</li>
+                    <li><span class="feat-icon">🤖</span> สั่งงานด้วย AI ภาษาไทย เช่น “ออกใบเสนอราคาให้ บริษัท ABC 50,000”</li>
+                </ul>
+                <a href="#contact" class="service-btn">สอบถามรายละเอียด →</a>
+            </div>
+        </div>
+
+        <!-- Service 2: Web App CRM + LINE -->
+        <div class="service-card reveal">
+            <div class="service-image">
+                <img src="images/service-crm.png" alt="Web App CRM + LINE MCP">
+            </div>
+            <div class="service-content">
+                <span class="service-badge">🤖 CRM System</span>
+                <h3>Web App <span class="gold">CRM + LINE</span> MCP</h3>
+                <p>ระบบ CRM เชื่อม LINE OA ครบวงจร ตอบแชทอัจฉริยะด้วย AI 24 ชม. พร้อมสมาชิกดิจิทัล</p>
+                <ul class="service-features">
+                    <li><span class="feat-icon">🤖</span> AI ตอบแชทอัจฉริยะ 24 ชม. ดึงข้อมูลจากเว็บมาตอบอัตโนมัติ</li>
+                    <li><span class="feat-icon">💬</span> แชทสด Multi-Admin โอนแชทระหว่างทีม พร้อมป้ายแจ้งเตือน</li>
+                    <li><span class="feat-icon">🎯</span> คีย์เวิร์ดตอบกลับอัตโนมัติ & Rich Menu Builder ลากวาง</li>
+                    <li><span class="feat-icon">👑</span> บัตรสมาชิกดิจิทัลบน LINE แสดง Tier แต้มสะสม</li>
+                    <li><span class="feat-icon">🎁</span> แคตตาล็อกแลกของรางวัล & คูปองส่วนลด QR Code</li>
+                    <li><span class="feat-icon">📲</span> สแกน QR Code สะสมแต้มหน้าร้าน + คำนวณแต้มอัตโนมัติ</li>
+                </ul>
+                <a href="#contact" class="service-btn">สอบถามรายละเอียด →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== QUOTES ===== -->
+    <section class="quotes-section">
+        <div class="section-header reveal" style="position:relative;z-index:1;">
+            <span class="section-tag" style="color:var(--gold);">✦ ปรัชญาการทำงาน</span>
+            <h2 class="section-title" style="color:var(--white);">คาถา <span class="gold">แห่งความสำเร็จ</span></h2>
+        </div>
+        <div class="quotes-grid">
+            <div class="quote-card reveal-scale">
+                <div class="quote-icon">💪</div>
+                <p>อึด — ให้มากพอต่อคำดูถูก<br>อดทน — ต่อคำปฏิเสธ<br>กระตือรือร้น — เมื่อออกทำงาน<br>กัดไม่ปล่อย — ติดตามอย่างต่อเนื่อง<br>อีกนิด — วันนี้เขาปฏิเสธ ไม่แปลว่าวันหน้าเขาจะไม่ทำ</p>
+                <div class="quote-author">— คาถาการทำงาน</div>
+            </div>
+            <div class="quote-card reveal-scale" style="transition-delay:0.15s;">
+                <div class="quote-icon">⭐</div>
+                <p>1. ความชัดเจน = พลัง<br>2. คิดใหญ่<br>3. เชื่อมั่นในเป้าหมาย<br>4. พันธสัญญากับตัวเอง<br>5. ลงมือทำทันที<br>6. คำปฏิเสธคือธรรมชาติของธุรกิจ<br>7. ธุรกิจนี้คือธุรกิจสร้างชีวิต</p>
+                <div class="quote-author">— วิธีคิดของคนสำเร็จ</div>
+            </div>
+            <div class="quote-card reveal-scale" style="transition-delay:0.3s;">
+                <div class="quote-icon">🎯</div>
+                <p>ตั้งเป้าหมายไปที่ดวงดาว แต่ถ้าพลาดยังอยู่ในถ้ำกลางหมู่ดวงดาว<br><br>เป้าหมายเขียนไว้บนหินผา ปัญหาเขียนไว้บนพื้นทราย</p>
+                <div class="quote-author">— ปรัชญาชีวิต</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
+        <div class="section-header reveal">
+            <span class="section-tag">✦ ติดต่อ</span>
+            <h2 class="section-title">พร้อม <span class="gold">ร่วมงาน</span> กับคุณ</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info reveal-left">
+                <h3>มาพูดคุยกัน!</h3>
+                <p>
+                    ไม่ว่าคุณจะต้องการที่ปรึกษาด้านการตลาด เทคโนโลยี AI
+                    หรือความร่วมมือทางธุรกิจ ผมพร้อมรับฟังและหาทางออกที่ดีที่สุดให้ครับ
+                </p>
+                <div class="contact-detail">
+                    <div class="icon">📱</div>
+                    <div class="info">
+                        <span>โทรศัพท์</span>
+                        <strong>063 978 9356</strong>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="icon">📧</div>
+                    <div class="info">
+                        <span>อีเมล</span>
+                        <strong>get4545@gmail.com</strong>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="icon">🌐</div>
+                    <div class="info">
+                        <span>เว็บไซต์</span>
+                        <strong>www.khaokhoview.com</strong>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="icon">📍</div>
+                    <div class="info">
+                        <span>ที่อยู่</span>
+                        <strong>ซอยลาดพร้าว จตุจักร<br>กรุงเทพ 10900</strong>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form reveal-right" id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label>ชื่อ-นามสกุล</label>
+                    <input type="text" name="from_name" placeholder="กรอกชื่อของคุณ" required>
+                </div>
+                <div class="form-group">
+                    <label>อีเมล</label>
+                    <input type="email" name="from_email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label>หัวข้อ</label>
+                    <select name="subject">
+                        <option>ที่ปรึกษาด้านการตลาด</option>
+                        <option>เทคโนโลยี & AI</option>
+                        <option>ออกแบบกราฟิก & สื่อ</option>
+                        <option>ความร่วมมือทางธุรกิจ</option>
+                        <option>อื่นๆ</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>ข้อความ</label>
+                    <textarea name="message" placeholder="พิมพ์ข้อความที่ต้องการปรึกษา..."></textarea>
+                </div>
+                <button type="submit" class="form-submit">🚀 ส่งข้อความ</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-logo">GET PATRADIT</div>
+        <p>ที่ปรึกษาด้านการลงทุน & การตลาด</p>
+        <div class="footer-social">
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="LINE">💬</a>
+            <a href="#" title="YouTube">📺</a>
+            <a href="#" title="LinkedIn">💼</a>
+        </div>
+        <div class="footer-copy">
+            © 2025 Get Patradit Supatwanitchakorn. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // ===== NAVBAR scroll =====
+        var navbar = document.getElementById('navbar');
+        var backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+            backToTop.classList.toggle('visible', window.scrollY > 500);
+        });
+
+        // ===== Mobile nav toggle =====
+        var hamburger = document.getElementById('hamburger');
+        var navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ===== Scroll reveal (IntersectionObserver) =====
+        var revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        var revealObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        revealEls.forEach(function(el) { revealObs.observe(el); });
+
+        // ===== Hero entrance animations =====
+        setTimeout(function() {
+            document.querySelectorAll('.hero-animate').forEach(function(el) { el.classList.add('show'); });
+        }, 100);
+
+        // ===== Smooth scroll =====
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                var t = document.querySelector(this.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // ===== EmailJS — safe init =====
+        try {
+            if (typeof emailjs !== 'undefined') emailjs.init('YOUR_PUBLIC_KEY');
+        } catch(e) {}
+
+        // ===== Contact form handler via EmailJS =====
+        function handleSubmit(e) {
+            e.preventDefault();
+            var btn = e.target.querySelector('.form-submit');
+            var original = btn.textContent;
+            btn.textContent = '⏳ กำลังส่ง...';
+            btn.disabled = true;
+            if (typeof emailjs === 'undefined') {
+                alert('EmailJS ยังไม่ได้ตั้งค่า');
+                btn.textContent = original; btn.disabled = false; return;
+            }
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target)
+                .then(function() {
+                    btn.textContent = '✅ ส่งสำเร็จ!';
+                    btn.style.background = 'linear-gradient(135deg, #2E7D32, #4CAF50)';
+                    e.target.reset();
+                    setTimeout(function() { btn.textContent = original; btn.style.background = ''; btn.disabled = false; }, 3000);
+                })
+                .catch(function(err) {
+                    btn.textContent = '❌ ส่งไม่สำเร็จ ลองใหม่';
+                    btn.style.background = 'linear-gradient(135deg, #C62828, #E53935)';
+                    console.error(err);
+                    setTimeout(function() { btn.textContent = original; btn.style.background = ''; btn.disabled = false; }, 3000);
+                });
+        }
+    </script>
+</body>
+</html>
